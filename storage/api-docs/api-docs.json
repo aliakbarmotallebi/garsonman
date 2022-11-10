@@ -1,0 +1,376 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API for e-commerce ",
+        "description": "",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api"
+        }
+    ],
+    "paths": {
+        "/carts": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Create a cart",
+                "operationId": "9b37c3a94041a752effdf1f510dc18ae",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cart created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid body supplied",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/carts/{id}/products": {
+            "get": {
+                "tags": [
+                    "CartProduct"
+                ],
+                "summary": "Display products in a cart",
+                "operationId": "2904e92db0a92ef2729ecd366ef8e792",
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "CartProduct"
+                ],
+                "summary": "Add product to cart",
+                "operationId": "d74e818bfe3ff2a3a7d499035da5f4d1",
+                "requestBody": {
+                    "request": "ProductArray",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Product added to cartsuccessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cart/Product not found"
+                    }
+                }
+            }
+        },
+        "/carts/{id}/products/{id}": {
+            "delete": {
+                "tags": [
+                    "CartProduct"
+                ],
+                "summary": "Remove product from cart",
+                "operationId": "38f72642dfd57ecb32d42963c0e0a242",
+                "responses": {
+                    "204": {
+                        "description": "Product removed from cart successfully"
+                    },
+                    "404": {
+                        "description": "Cart/Product not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "CartProduct"
+                ],
+                "summary": "Update cart product quantity",
+                "operationId": "09f49726b7d75a026625502e6bdd1492",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Cart updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cart/Product not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "List all Products",
+                "operationId": "080f057905dc32d2f11065d606dc4cd6",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Show a product",
+                "operationId": "b5099368868dbe7900acd129345eb148",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product to return",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Login User",
+                "operationId": "a5385ffca73f113abef00ea604d1ca58",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone_number": {
+                                        "description": "the mobile",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "create token the jwt",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid login credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/verify": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Verify of user by code sms",
+                "operationId": "06c1feeaba9382a46373cc6f1056eb4c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "code": {
+                                        "description": "verify code",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "access all api",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid verify",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/refresh/token": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Refresh user the token jwt",
+                "operationId": "0661d41bfde8557ab9810101505d43d1",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/profile": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Display info user logined",
+                "operationId": "8e91004b9bb85bcaabed3854fc33a8a8",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "logout the user",
+                "operationId": "0f6715df0d22b69c7e35bd32b4c1fc92",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CartRequest": {
+                "properties": {
+                    "productId": {
+                        "type": "string"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.logo {
+    font-family: 'orbitron_black';
+}
+
+.loading {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.loading-dot {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: loadingFade 1s infinite;
+    -moz-animation: loadingFade 1s infinite;
+    animation: loadingFade 1s infinite;
+}
+
+.loading-dot:nth-child(1) {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.loading-dot:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.loading-dot:nth-child(3) {
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(4) {
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.rate-area {
+    float: left;
+    border-style: none;
+}
+
+.rate-area:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+    clip: rect(0, 0, 0, 0);
+}
+
+.rate-area:not(:checked)>label {
+    float: right;
+    width: 0.8em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 180%;
+    color: lightgrey;
+}
+
+.rate-area:not(:checked)>label:before {
+    content: "★";
+}
+
+.rate-area>input:checked~label {
+    color: gold;
+}
+
+.rate-area:not(:checked)>label:hover,
+.rate-area:not(:checked)>label:hover~label {
+    color: gold;
+}
+
+.rate-area>input:checked+label:hover,
+.rate-area>input:checked+label:hover~label,
+.rate-area>input:checked~label:hover,
+.rate-area>input:checked~label:hover~label,
+.rate-area>label:hover~input:checked~label {
+    color: gold;
+}
+
+@-webkit-keyframes loadingFade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes loadingFade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes loadingFade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.swiper-slide {
+    width: auto;
+}

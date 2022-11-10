@@ -1,0 +1,39 @@
+@import url('font.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    body {
+        @apply font-peyda-regular;
+    }
+}
+
+body {
+    direction: rtl;
+}
+
+.gm-ripple::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    border-radius: 0.25rem;
+    z-index: -1;
+    animation: ripple 1.5s ease-out infinite;
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}

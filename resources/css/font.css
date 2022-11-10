@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'peyda_black';
+    src: url('../font/peyda/eot/PeydaWeb-Black.eot');
+    src: url("../font/peyda/ttf/Peyda-Black.ttf") format("truetype");
+    src: url('../font/peyda/woff/PeydaWeb-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'peyda_bold';
+    src: url('../font/peyda/eot/PeydaWeb-Bold.eot');
+    src: url("../font/peyda/ttf/Peyda-Bold.ttf") format("truetype");
+    src: url('../font/peyda/woff/PeydaWeb-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'peyda_regular';
+    src: url('../font/peyda/eot/PeydaWeb-Regular.eot');
+    src: url("../font/peyda/ttf/Peyda-Regular.ttf") format("truetype");
+    src: url('../font/peyda/woff/PeydaWeb-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+
+@font-face {
+    font-family: 'orbitron_black';
+    src: url('../font/orbitron/eot/orbitron-black.eot');
+    src: url("../font/orbitron/ttf/orbitron-black.ttf") format("truetype");
+    src: url('../font/orbitron/woff/orbitron-black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'orbitron_regular';
+    src: url('../font/orbitron/eot/orbitron-regular.eot');
+    src: url("../font/orbitron/ttf/orbitron-regular.ttf") format("truetype");
+    src: url('../font/orbitron/woff/orbitron-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: rgba(0, 0, 0, 0.2) 0 0 1px
+}
